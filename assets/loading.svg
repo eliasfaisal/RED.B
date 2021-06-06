@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="#5F6368" style="&#10;    animation: loading_animation 1s infinite linear;&#10;">
+    <style>@keyframes loading_animation {
+    from {
+        transform: rotateZ(-360deg);
+    }
+
+    to {
+        trasnform: rotateZ(360deg);
+    }
+}
+</style>
+<circle xmlns="http://www.w3.org/2000/svg" r="120" cx="128" cy="128" x="0" y="0" stroke="black" stroke-width="5px" fill="none" stroke-linecap="round">
+</circle><circle xmlns="http://www.w3.org/2000/svg" r="120" cx="128" cy="128" x="0" y="0" stroke="#c00000" stroke-width="11px" fill="none" stroke-dasharray="252 755" stroke-dashoffset="0" stroke-linecap="round">
+</circle>
+
+</svg>

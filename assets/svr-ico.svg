@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" fill="none" style="&#10;    animation: loading_animation 1s infinite linear;&#10;">
+    
+<path xmlns="http://www.w3.org/2000/svg" stroke="#00000029" stroke-width="40px" d="M 38 128 L 68 128 M 188 128 l 30 0" fill="none">
+</path>
+<circle xmlns="http://www.w3.org/2000/svg" r="55" cx="128" cy="128" x="0" y="0" stroke="#00000029" stroke-width="15px" fill="none" stroke-linecap="round">
+</circle>
+<circle xmlns="http://www.w3.org/2000/svg" r="20" cx="128" cy="128" x="0" y="0" fill="#00000029" stroke-linecap="round">
+</circle>
+
+</svg>
