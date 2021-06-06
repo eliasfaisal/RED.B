@@ -5,11 +5,23 @@
         <meta property="og:url" content="https://github.com/eliasfaisal">
         <meta property="og:description" content="RED.B Web Page ProtoType Desgined By @EliasFaisal">
         <meta property="og:image" content="assets/ogcover.png">
+        <meta property="og:icon" content="assets/icon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--<link rel="icon" href="assets/favicon.png">-->
+        <link rel="icon" href="assets/icon.png">
         <link rel="stylesheet" href="styles/index.css">
     </head>
     <body style="overflow:hidden;">
+        <div hidden id="map_wnd">
+            <div class="map_btn_handler">
+                <div class="map_btn">
+                    <div id="map_ogm">Open in Google Maps</div>
+                </div>
+                <div id="map_exit" class="map_btn">
+                    <div>Exit</div>
+                </div>
+            </div>
+            <div class="map_form"></div>
+        </div>
         <div id="o_layer"></div>
         <div style="z-index:-10;opacity:0;" id="menu_wnd">
             <div class="menu_btn"></div>
@@ -166,7 +178,7 @@
                 <div class="btm_barcntH">
                     <div class="btm_barcnt">
                         <div class="btm_barico" style="background-image: url('assets/call.svg')"></div>
-                        <a href="call:+000000000000" class="call btm_bartext">+000000000000</a>
+                        <a href="tel:+000000000000" class="call btm_bartext">+000000000000</a>
                     </div>
                 </div>
                 <div class="btm_barcntH">

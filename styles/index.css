@@ -4,6 +4,22 @@
     src: url("../assets/SUISL.ttf") format("truetype");
 }
 
+::-webkit-scrollbar {
+    border-radius: 60px;
+    background: #0000001c;
+    width: 10px;
+}
+
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000000cf;
+    border-radius: 60px;
+}
+
 * {
     user-select: none;
     font-family: 'SUISL';
@@ -412,4 +428,50 @@ body {
 
 #me:hover {
     text-decoration: underline dashed;
+}
+
+/* Map */
+.map_form {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    position: fixed;
+    margin: 60px 5%;
+    box-shadow: 0 0 0 2px red;
+    border-radius: 6px;
+    background: #404040;
+}
+
+.map_btn {
+    color: #fff;
+}
+
+.map_btn>div {
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #0003;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.map_btn:hover>div {
+    background-color: #0009;
+}
+
+.map_btn_handler {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: #00000073;
+    z-index: 5;
+}
+
+#map_wnd {
+    position: fixed;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    z-index: 2;
 }

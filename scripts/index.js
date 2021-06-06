@@ -200,4 +200,47 @@ onload = ()=>{
     qs("#o_layer").style.zIndex = -10;
     qs("body").style.overflow = "";
     qs(".slider_back").hidden = 0;
+
+    //
+    GMlink = 'https://google.com/search?q=15.59851075637942, 32.55170909027843'
+    qs("#map_ogm").onclick = ()=>{
+        window.open(GMlink);
+    }
+
+    qs("#map_exit").onclick = ()=>{
+        qs('#map_wnd').hidden = 1;
+        //qs(".map_form").innerHTML = "";
+    }
+
+    initMap = ()=>{
+        scr = ce('script');
+        scr.src = 'https://www.powr.io/powr.js?platform=html';
+        qs('.map_form').innerHTML += '<div style="width:100%;height:100%;" class="powr-map" id="501dcfe9_1622976327"></div>';
+
+        scr.onload = ()=>{
+            if (qs('.powrLoaded')) {
+                idx = setInterval(()=>{
+                    if (qs('iframe')) {
+                        qs('iframe').style.height = "100%";
+                        qs('iframe').style.width = "100%";
+                        console.log('#Loadded!');
+                        qs(".map_form").querySelector(".o_layer").remove()
+                        clearInterval(idx);
+                    }
+                }
+                , 500);
+            }
+        }
+        qs('.map_form').appendChild(scr);
+    }
+    //
+
+    qs('.maploc').onclick = ()=>{
+        if (qs("iframe") == undefined) {
+            qs('.map_form').innerHTML += '<div class="o_layer" id="o_layer" style="position:unset;background-size:60px;"></div>';
+            initMap();
+        }
+        qs('#map_wnd').hidden = 0;
+
+    }
 }
