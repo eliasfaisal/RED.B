@@ -19,6 +19,7 @@ onload = ()=>{
     current = 0;
     imgs = qsa('.img')
     sbtn = qsa('.sbtn')
+    qs('#bke').on = 1;
     backdata = ['assets/1.png', 'assets/2.png', 'assets/3.png', 'assets/4.png', 'assets/5.png']
 
     qs('#menu').onclick = ()=>{
@@ -185,6 +186,20 @@ onload = ()=>{
         document.location.href = "#btm_bar";
         qs("#btm_bar").style.animation = "btmbar_animation ease-in-out 1s";
     }
+
+    qs('#bke').onclick = (e)=>{
+        var me = e.target;
+        if (me.on) {
+            qs('.slider_back').hidden = 1;
+            me.innerHTML = "Background : Off";
+            me.on = 0;
+        } else {
+            qs('.slider_back').hidden = 0;
+            me.innerHTML = "Background : On";
+            me.on = 1;
+        }
+    }
+
     onscroll = ()=>{
         if (scrollY > 100) {
             qs('#up').hidden = 0;
