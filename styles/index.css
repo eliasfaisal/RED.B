@@ -23,6 +23,7 @@
 * {
     user-select: none;
     font-family: 'SUISL';
+    -webkit-tap-highlight-color: transparent;
 }
 
 .slider_back {
