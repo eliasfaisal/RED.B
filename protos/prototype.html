@@ -1,0 +1,234 @@
+<html>
+    <head>
+        <style>
+            * {
+                font-family: sans-serif;
+                transition: 300ms;
+            }
+
+            #o_layer {
+                width: 700;
+                height: 270;
+                background: url('assets/loading.svg') no-repeat;
+                background-position: center;
+                background-size: 80px;
+                position: absolute;
+            }
+
+            .sbtn_selected {
+                transition: 300ms;
+                background: #00000026;
+                box-shadow: inset 0 0 0 2px red;
+            }
+
+            .sbtn {
+                transition: 300ms;
+                width: 20px;
+                height: 20px;
+                background: #ffffff26;
+                border-radius: 60px;
+                margin: 0 5px;
+                cursor: pointer;
+            }
+
+            .btn_handler {
+                display: flex;
+                width: fit-content;
+                margin: 10px auto;
+            }
+
+            #next,#prev {
+                transition: 300ms;
+                cursor: pointer;
+                width: 50px;
+                height: 50px;
+                background: #00000014;
+                border-radius: 60px;
+                margin: auto;
+                background-image: url(assets/btn.svg);
+                background-repeat: no-repeat;
+                background-size: 30px 30px;
+                background-position: 11px;
+            }
+
+            #prev {
+                transform: rotateZ( 180deg );
+            }
+
+            #next:hover,#prev:hover {
+                background-color: #ffffff14;
+            }
+
+            #next:active,#prev:active {
+                background-color: #ffffff07;
+            }
+
+            #screen {
+                width: 700px;
+                height: 270px;
+                margin: auto;
+                background: #ffffff24;
+                transition: 300ms;
+                border-radius: 5px;
+                display: -webkit-inline-box;
+                overflow: hidden;
+            }
+
+            .screen_handler {
+                display: flex;
+            }
+
+            .form {
+                width: 900px;
+                height: fit-content;
+            }
+
+            .img {
+                width: 700px;
+                height: 270px;
+                background-size: 700px 270px;
+            }
+        </style>
+    </head>
+    <body style="
+    background: #404040;
+    margin: 0;
+">
+        <div class="form">
+            <div class="screen_handler" style="
+">
+                <div class="btn" id="prev"></div>
+                <div id="screen">
+                    <!-- <div hidden id="o_layer"></div> -->
+                    <div class="img"></div>
+                    <div class="img"></div>
+                    <div class="img"></div>
+                </div>
+                <div class="btn" id="next"></div>
+            </div>
+            <div class="btn_handler">
+                <div class="sbtn sbtn_selected"></div>
+                <div class="sbtn"></div>
+                <div class="sbtn"></div>
+                <div class="sbtn"></div>
+                <div class="sbtn"></div>
+            </div>
+        </div>
+        <script>
+            //css shorcuts decalres :D
+            qs = (s)=>{
+                return document.querySelector(s);
+            }
+            qsa = (s)=>{
+                return document.querySelectorAll(s);
+            }
+            //definintons
+            current = 0;
+            imgs = qsa('.img')
+            sbtn = qsa('.sbtn')
+            backdata = ['file:///C:/Users/JOJO/Desktop/DND/FB/187927270_2081105408699115_1087787121961577914_n.jpg', 'file:///C:/Users/JOJO/Desktop/DND/FB/186950392_10159163480943290_2009410033432997163_n.jpg', 'file:///C:/Users/JOJO/Desktop/DND/FB/187010312_10159163480763290_710307197303578912_n.jpg', 'file:///C:/Users/JOJO/Desktop/DND/FB/191265425_2084843101658679_777325718221445815_n.jpg', 'file:///C:/Users/JOJO/Desktop/DND/FB/183814743_10159147790113290_3165707511103731855_n.jpg']
+            //inits
+            //center at the middle img
+            qs("#screen").scroll(700, 0)
+            imgs[1].style.backgroundImage = `url('${backdata[current]}')`;
+            //temp
+            timedouted = 1
+            tmids = []
+
+            //small init
+            for (var e of imgs) {
+                e.style.transition = "300ms";
+            }
+
+            qs("#next").onclick = ()=>{
+                qs('.sbtn_selected').className = qs('.sbtn_selected').className.replace("sbtn_selected", "")
+                if (timedouted == !1) {
+                    console.log('out!')
+                    console.log(tmids)
+                    for (var e of tmids) {
+                        clearTimeout(e)
+                    }
+                    tmids = [];
+                    timedouted = !0;
+                    return 0;
+                } else {
+                    timedouted = !1;
+                }
+                if (current >= backdata.length - 1) {
+                    current = 0;
+                } else {
+                    current++;
+                }
+                imgs[2].style.backgroundImage = `url('${backdata[current]}')`;
+                imgs[2].style.marginRight = "700px";
+                imgs[0].style.width = "0px";
+
+                //
+                tmids.push(setTimeout(()=>{
+                    sbtn[current].className += " sbtn_selected";
+                    for (var e of imgs) {
+                        e.style.transition = "unset";
+                    }
+                    imgs[1].style.backgroundImage = `url('${backdata[current]}')`;
+                    imgs[0].style.width = "700px";
+                    imgs[2].style.marginRight = "";
+                    imgs[2].style.backgroundImage = "";
+                    tmids.push(setTimeout(()=>{
+                        for (var e of imgs) {
+                            e.style.transition = "300ms";
+                        }
+                    }
+                    , 25))
+                    timedouted = !0;
+                    console.log('reached2!');
+                }
+                , 300))
+            }
+
+            qs("#prev").onclick = ()=>{
+                qs('.sbtn_selected').className = qs('.sbtn_selected').className.replace("sbtn_selected", "")
+                if (timedouted == !1) {
+                    console.log('out!')
+                    console.log(tmids)
+                    for (var e of tmids) {
+                        clearTimeout(e)
+                    }
+                    tmids = [];
+                    timedouted = !0;
+                    return 0;
+                } else {
+                    timedouted = !1;
+                }
+                if (current <= 0) {
+                    current = backdata.length - 1;
+                } else {
+                    current--;
+                }
+                imgs[0].style.backgroundImage = `url('${backdata[current]}')`;
+                imgs[0].style.marginLeft = "700px";
+                imgs[2].style.width = "0px";
+
+                //
+                tmids.push(setTimeout(()=>{
+                    sbtn[current].className += " sbtn_selected";
+                    for (var e of imgs) {
+                        e.style.transition = "unset";
+                    }
+                    imgs[1].style.backgroundImage = `url('${backdata[current]}')`;
+                    imgs[2].style.width = "700px";
+                    imgs[0].style.marginLeft = "";
+                    imgs[0].style.backgroundImage = "";
+                    tmids.push(setTimeout(()=>{
+                        for (var e of imgs) {
+                            e.style.transition = "300ms";
+                        }
+                    }
+                    , 25))
+                    timedouted = !0;
+                    console.log('reached2!');
+                }
+                , 300))
+            }
+        </script>
+    </body>
+</html>

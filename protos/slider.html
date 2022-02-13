@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <style>
+            body {
+                background: gray;
+            }
+
+            #screen {
+                width: 300px;
+                height: 150px;
+                display: -webkit-inline-box;
+                overflow: hidden;
+            }
+
+            .img {
+                width: 300px;
+                height: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="
+    display: flex;
+">
+            <button id="prev">Prev</button>
+            <div id="screen">
+                <div class="img"></div>
+                <div class="img"></div>
+                <div class="img"></div>
+            </div>
+            <button id="next">Next</button>
+        </div>
+        <!-- Script Part Separation of Bullshit! -->
+        <script>
+            //css shorcuts decalres :3
+            qs = (s)=>{
+                return document.querySelector(s);
+            }
+            qsa = (s)=>{
+                return document.querySelectorAll(s);
+            }
+            //definintons
+            current = 0;
+            imgs = qsa('.img')
+            backdata = ['radial-gradient(black, transparent) red', 'radial-gradient(black, transparent) green', 'radial-gradient(black, transparent) blue', 'radial-gradient(black, transparent) yellow', 'radial-gradient(black, transparent) gray', 'radial-gradient(black, transparent) purple', ]
+            //inits
+            //center at the middle img
+            qs("#screen").scroll(300, 0)
+            imgs[1].style.background = backdata[current];
+            //temp
+            timedouted = 1
+            tmids = []
+
+            //small init
+            for (var e of imgs) {
+                e.style.transition = "300ms";
+            }
+
+            qs("#next").onclick = ()=>{
+                if (timedouted == !1) {
+                    console.log('out!')
+                    console.log(tmids)
+                    for (var e of tmids) {
+                        clearTimeout(e)
+                    }
+                    tmids = [];
+                    timedouted = !0;
+                    return 0;
+                } else {
+                    timedouted = !1;
+                }
+                if (current >= backdata.length - 1) {
+                    current = 0;
+                } else {
+                    current++;
+                }
+                imgs[2].style.background = backdata[current];
+                imgs[2].style.marginRight = "300px";
+                imgs[0].style.width = "0px";
+
+                //
+                tmids.push(setTimeout(()=>{
+                    for (var e of imgs) {
+                        e.style.transition = "unset";
+                    }
+                    imgs[1].style.background = backdata[current];
+                    imgs[0].style.width = "300px";
+                    imgs[2].style.marginRight = "";
+                    imgs[2].style.background = "";
+                    tmids.push(setTimeout(()=>{
+                        for (var e of imgs) {
+                            e.style.transition = "300ms";
+                        }
+                    }
+                    , 25))
+                    timedouted = !0;
+                    console.log('reached2!');
+                }
+                , 300))
+            }
+
+            qs("#prev").onclick = ()=>{
+                if (timedouted == !1) {
+                    console.log('out!')
+                    console.log(tmids)
+                    for (var e of tmids) {
+                        clearTimeout(e)
+                    }
+                    tmids = [];
+                    timedouted = !0;
+                    return 0;
+                } else {
+                    timedouted = !1;
+                }
+                if (current <= 0) {
+                    current = backdata.length - 1;
+                } else {
+                    current--;
+                }
+                imgs[0].style.background = backdata[current];
+                imgs[0].style.marginLeft = "300px";
+                imgs[2].style.width = "0px";
+
+                //
+                tmids.push(setTimeout(()=>{
+                    for (var e of imgs) {
+                        e.style.transition = "unset";
+                    }
+                    imgs[1].style.background = backdata[current];
+                    imgs[2].style.width = "300px";
+                    imgs[0].style.marginLeft = "";
+                    imgs[0].style.background = "";
+                    tmids.push(setTimeout(()=>{
+                        for (var e of imgs) {
+                            e.style.transition = "300ms";
+                        }
+                    }
+                    , 25))
+                    timedouted = !0;
+                    console.log('reached2!');
+                }
+                , 300))
+            }
+        </script>
+    </body>
+</html>

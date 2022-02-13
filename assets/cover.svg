@@ -17,5 +17,5 @@
 }
 </style>
     
-    <path d="M 0 30 C 104 -25, 97 33 , 191 11 C 245 1 , 304 20, 300 25 l 0 112 c -156 -114, -146 -10, -302 -10" style="fill:red;animation: cover_animation 30s infinite ease-in-out;">
+    <path d="M 0 30 C 104 -25, 97 33 , 191 11 C 245 1 , 304 20, 300 25 l 0 112 c -156 -114, -146 -10, -302 -10" style="fill:#dc2626;animation: cover_animation 30s infinite ease-in-out;">
 </path></svg>

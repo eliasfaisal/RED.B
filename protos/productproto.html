@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <style>
+            @font-face {
+                font-family: 'SUISL';
+                font-style: normal;
+                src: url("assets/SUISL.ttf") format("truetype");
+            }
+
+            * {
+                transition: 300ms;
+                font-family: 'SUISL';
+            }
+
+            body {
+                background: #404040;
+            }
+
+            .prd_form {
+                width: 300px;
+                height: 300px;
+                background: #00000029;
+                border-radius: 6px;
+                overflow: hidden;
+            }
+
+            .prd_form:hover>.prd_bottom {
+                margin-top: -154px;
+            }
+
+            .prd_form:hover>.prd_top {
+                background-size: 325px 325px;
+            }
+
+            .prd_form:active {
+                box-shadow : inset 0 0 0 1px red;
+            }
+
+            .prd_top {
+                width: -webkit-fill-available;
+                height: 300px;
+                background: url(file:///C:/Users/JOJO/Desktop/DND/FB/9bb92a6f3970b851ca8766b3ef807f7cc64b209f_hq.jpg) no-repeat;
+                background-position: center;
+                background-size: 300px 300px;
+            }
+
+            .prd_bottom {
+                width: -webkit-fill-available;
+                height: fit-content;
+                background: #00000061;
+                margin-top: -45px;
+                padding: 10px;
+            }
+
+            .name {
+                color: #ffffffad;
+                margin: auto 10px;
+                width: fit-content;
+                height: fit-content;
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .info {
+                color: #ffffffad;
+                margin: auto 10px;
+                width: fit-content;
+                height: fit-content;
+                font-size: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="prd_form">
+            <div class="prd_top"></div>
+            <div class="prd_bottom">
+                <div class="name">Product Name</div>
+                <div class="info">Nike ®</div>
+                <div class="info">XXL</div>
+                <div class="info">Gray</div>
+                <div class="info">Solid</div>
+                <div class="info">Cotton</div>
+            </div>
+        </div>
+    </body>
+</html>

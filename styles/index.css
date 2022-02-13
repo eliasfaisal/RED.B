@@ -52,10 +52,11 @@
     border-radius: 60px;
     cursor: pointer;
     transition: 300ms;
+    border: solid 1px transparent;
 }
 
 #menu:hover {
-    box-shadow: inset 0 0 0px 2px red;
+    border: solid 1px #dc2626;
 }
 
 .text_handler {
@@ -74,7 +75,7 @@
 
 body {
     margin: 0;
-    background: #404040;
+    background: #0d1117;
 }
 
 #header {
@@ -88,7 +89,7 @@ body {
     width: -webkit-fill-available;
     height: fit-content;
     display: flex;
-    background: #00000091;
+    background: #0d11173d;
     position: fixed;
 }
 
@@ -96,7 +97,7 @@ body {
 #o_layer {
     width: -webkit-fill-available;
     height: -webkit-fill-available;
-    background: url('../assets/loading.svg') no-repeat #404040;
+    background: url('../assets/loading.svg') no-repeat #0d1117;
     background-position: center;
     background-size: 150px;
     position: fixed;
@@ -107,7 +108,16 @@ body {
 .sbtn_selected {
     transition: 300ms;
     background-color: #000000;
-    box-shadow: inset 0 0 0 2px red;
+    box-shadow: inset 0 0 0 2px #dc2626;
+}
+
+.sbtn_selected::before {
+    content: '';
+    box-shadow: 0 0 5px 0px #dc2626;
+    display: flex;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    border-radius: 60px;
 }
 
 .sbtn {
@@ -130,13 +140,14 @@ body {
     cursor: pointer;
     width: 50px;
     height: 50px;
-    background: #0000002e;
+    background: #0000001f;
     border-radius: 60px;
     margin: auto 20px;
     background-image: url(../assets/btn.svg);
     background-repeat: no-repeat;
     background-size: 30px 30px;
     background-position: 11px;
+    border: solid 2px #00000052;
 }
 
 #prev {
@@ -184,7 +195,7 @@ body {
     height: 30px;
     background: #000000a6;
     border-radius: 6px;
-    border: dashed red 1px;
+    border: dashed #dc2626 1px;
     margin: auto;
 }
 
@@ -306,14 +317,15 @@ body {
     cursor: pointer;
     border-radius: 60px;
     transition: 300ms;
+    border: solid 1px transparent;
 }
 
 .menu_btn:hover {
-    box-shadow: inset 0 0 0 2px red;
+    border: solid 1px #dc2626;
 }
 
 body {
-    background: #404040;
+    background: #0d1117;
 }
 
 #menu_wnd {
@@ -345,8 +357,8 @@ body {
 }
 
 .link:hover {
-    border-left: solid 2px red;
-    border-right: solid 2px red;
+    border-left: solid 2px #dc2626;
+    border-right: solid 2px #dc2626;
 }
 
 /* contact part */
@@ -355,9 +367,6 @@ body {
     background-color: #00000080;
     color: #fff;
     text-align: center;
-    background-image: linear-gradient( 90deg , #00000080, #ff000057,#00000080);
-    background-size: 5044px;
-    background-position: 0 0;
 }
 
 .btm_barcntH {
@@ -389,12 +398,9 @@ body {
 }
 
 @keyframes btmbar_animation {
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: -5044px 0;
+    50% {
+        background-color: #000000d1;
+        box-shadow: inset 0 0 0 2px #dc2626bd;
     }
 }
 
@@ -402,7 +408,7 @@ body {
 #up {
     width: 46px;
     height: 46px;
-    background: url(../assets/btn.svg) center no-repeat #ffffff4a;
+    background: url(../assets/btn.svg) center no-repeat #ffffff1f;
     background-size: 25px;
     border-radius: 60px;
     cursor: pointer;
@@ -411,6 +417,7 @@ body {
     right: 30px;
     position: fixed;
     transform: rotateZ( -90deg );
+    border: solid 1px #ffffff52;
 }
 
 #up:hover {
@@ -437,9 +444,9 @@ body {
     height: -webkit-fill-available;
     position: fixed;
     margin: 60px 5%;
-    box-shadow: 0 0 0 2px red;
+    box-shadow: 0 0 0 2px #dc2626;
     border-radius: 6px;
-    background: #404040;
+    background: #0d1117;
 }
 
 .map_btn {
